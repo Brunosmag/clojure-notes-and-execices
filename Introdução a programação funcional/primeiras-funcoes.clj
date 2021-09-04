@@ -26,3 +26,7 @@
 ;;Para redefinir os itens de um array, precisamos indicar de maneira clara que queremos redefinir o simbolo.
 (def estoque (conj estoque "Camiseta"))
 
+;;Para definir nossas funções, usamos defn e apontamos seus parametros dentro de [].
+(defn imprime-mensagem []  
+    (println "Bem vindo(a) ao estoque."))
+
