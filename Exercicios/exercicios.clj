@@ -25,3 +25,14 @@
 (def resposta (calcula-area entrada))
 (def resposta-formatada (print-str "A=" (format "%.4f" resposta)))
 (println (clojure.string/replace resposta-formatada " " ""))
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1004
+(def A (Integer/parseInt (read-line)))
+(def B (Integer/parseInt (read-line)))
+
+(defn calcula-produto
+  [A B]
+  (* A B))
+
+(println "PROD =" (calcula-produto A B))
