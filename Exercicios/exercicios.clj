@@ -36,3 +36,18 @@
   (* A B))
 
 (println "PROD =" (calcula-produto A B))
+
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1005
+(def A (Double/parseDouble (read-line)))
+(def B (Double/parseDouble (read-line)))
+
+(defn calcular-media
+  [A B]
+  (let [peso-A (* A 3.5)
+        peso-B (* B 7.5)
+        peso-total 11.0]
+    (/ (+ peso-A peso-B) peso-total)))
+
+(println "MEDIA =" (format "%.5f" (calcular-media A B)))
