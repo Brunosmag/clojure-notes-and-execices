@@ -67,3 +67,16 @@
     (/ (+ peso-A peso-B peso-C) 10)))
 
 (println "MEDIA = " (calcula-media A B C))
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1007
+(def A (Integer/parseInt (read-line)))
+(def B (Integer/parseInt (read-line)))
+(def C (Integer/parseInt (read-line)))
+(def D (Integer/parseInt (read-line)))
+
+(defn calcula-diferenca
+  [A B C D]
+    (-(* A B) (* C D)))
+
+(println "DIFERENCA = " (calcula-diferenca A B C D))
