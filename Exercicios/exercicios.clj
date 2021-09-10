@@ -95,3 +95,19 @@
 
 (println "NUMBER = " funcionario-id)
 (println "SALARY = U$" (format "%.2f" (calcula-salario quantidade-horas salario)))
+
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1009
+(def nome (read-line))
+(def salario (Double/parseDouble (read-line)))
+(def total-vendas (Double/parseDouble (read-line)))
+
+(defn calcula-salario-com-comissao
+  [salario total-vendas]
+  (let [percentual-comissao (/ 15 100)
+        valor-commisionado (* total-vendas percentual-comissao)]
+    (+ salario valor-commisionado)))
+
+(def salario-formatado (format "%.2f" (calcula-salario-com-comissao salario total-vendas)))
+(println "TOTAL = R$" salario-formatado)
