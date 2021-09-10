@@ -80,3 +80,18 @@
     (-(* A B) (* C D)))
 
 (println "DIFERENCA = " (calcula-diferenca A B C D))
+
+
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1008
+(def funcionario-id (Integer/parseInt (read-line)))
+(def quantidade-horas (Integer/parseInt (read-line)))
+(def salario (Double/parseDouble (read-line)))
+
+(defn calcula-salario
+  [horas salario]
+  (* horas salario))
+
+(println "NUMBER = " funcionario-id)
+(println "SALARY = U$" (format "%.2f" (calcula-salario quantidade-horas salario)))
