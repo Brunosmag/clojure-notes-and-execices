@@ -129,3 +129,17 @@
 (def total-pedido (+ resumo-primeiro-pedido resumo-segundo-pedido))
 
 (println "VALOR A PAGAR: R$" (format "%.2f" total-pedido))
+
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1011
+(def entrada (Integer/parseInt (read-line)))
+
+(defn calcula-esfera
+  [raio]
+  (let [pi 3.14159
+        raio-elevado (math/expt raio 3)
+        primeira-parte-formula (/ 4 3.0)]
+    (* primeira-parte-formula pi raio-elevado)))
+
+(println "VOLUME = "(format "%.3f" (calcula-esfera entrada)) )
