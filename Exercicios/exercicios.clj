@@ -143,3 +143,56 @@
     (* primeira-parte-formula pi raio-elevado)))
 
 (println "VOLUME = "(format "%.3f" (calcula-esfera entrada)) )
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1012
+  (:require [clojure.math.numeric-tower :as math]
+            [clojure.string :as str]))
+
+(def entrada (read-line))
+(def vetor-entrada (str/split entrada #" "))
+
+(defn calcula-triangulo
+  [altura base]
+  (let [altura-double (Double/parseDouble altura)
+        base-double (Double/parseDouble base)]
+    (/ (* base-double altura-double) 2)))
+
+(def triangulo (calcula-triangulo (get vetor-entrada 0) (get vetor-entrada 2)))
+(println "TRIANGULO:" (format "%.3f" triangulo))
+
+(defn calcula-circulo
+  [c]
+  (let [pi 3.14159
+        c-elevado (math/expt (Double/parseDouble c) 2)]
+    (* pi c-elevado)))
+
+(def circulo (calcula-circulo (get vetor-entrada 2)))
+(println "CIRCULO:" (format "%.3f" circulo))
+
+(defn calcula-trapezio
+  [[a b c]]
+  (let [double-a (Double/parseDouble a)
+        double-b (Double/parseDouble b)
+        double-c (Double/parseDouble c)]
+    (* (/ (+ double-a double-b) 2) double-c)))
+
+(def trapezio (calcula-trapezio vetor-entrada))
+(println "TRAPEZIO:" (format "%.3f" trapezio))
+
+(defn calcula-quadrado
+  [c]
+  (let [double-c (Double/parseDouble c)]
+    (math/expt double-c 2)))
+
+(def quadrado (calcula-quadrado (get vetor-entrada 1)))
+(println "QUADRADO:" (format "%.3f" quadrado))
+
+(defn calcula-retangulo
+  [a b]
+  (let [double-a (Double/parseDouble a)
+        double-b (Double/parseDouble b)]
+    (* double-a double-b)))
+
+(def retangulo (calcula-retangulo (get vetor-entrada 0) (get vetor-entrada 1)))
+(println "RETANGULO:" (format "%.3f" retangulo))
+
