@@ -111,3 +111,21 @@
 
 (def salario-formatado (format "%.2f" (calcula-salario-com-comissao salario total-vendas)))
 (println "TOTAL = R$" salario-formatado)
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1010
+(def primeira-entrada (read-line))
+(def segunda-entrada (read-line))
+
+(def vetor-primeira-entrada (str/split primeira-entrada #" "))
+(def vetor-segunda-entrada (str/split segunda-entrada #" "))
+
+(defn calcula-valores
+  [[_ quantidade valor]]
+  (* (Integer/parseInt quantidade) (Double/parseDouble valor)))
+
+(def resumo-primeiro-pedido (calcula-valores vetor-primeira-entrada))
+(def resumo-segundo-pedido (calcula-valores vetor-segunda-entrada))
+(def total-pedido (+ resumo-primeiro-pedido resumo-segundo-pedido))
+
+(println "VALOR A PAGAR: R$" (format "%.2f" total-pedido))
