@@ -196,3 +196,15 @@
 (def retangulo (calcula-retangulo (get vetor-entrada 0) (get vetor-entrada 1)))
 (println "RETANGULO:" (format "%.3f" retangulo))
 
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1013
+(def entrada (read-line))
+(def vetor-entrada (str/split entrada #" "))
+
+(defn converte-em-int
+  [value]
+  (Integer/parseInt value))
+
+(def vetor-entrada-int (map converte-em-int vetor-entrada))
+(println (reduce max vetor-entrada-int) "é o maior.")
