@@ -208,3 +208,15 @@
 
 (def vetor-entrada-int (map converte-em-int vetor-entrada))
 (println (reduce max vetor-entrada-int) "é o maior.")
+
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1014
+(def distancia (Integer/parseInt (read-line)))
+(def combustivel (Double/parseDouble (read-line)))
+
+(defn calcula-combustivel-gasto
+  [distancia combustivel]
+  (format "%.3f" (/ distancia combustivel)))
+
+(println (calcula-combustivel-gasto distancia combustivel) "km/l")
