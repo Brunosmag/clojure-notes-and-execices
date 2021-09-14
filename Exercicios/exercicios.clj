@@ -220,3 +220,21 @@
   (format "%.3f" (/ distancia combustivel)))
 
 (println (calcula-combustivel-gasto distancia combustivel) "km/l")
+
+
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1015
+(def p1 (read-line))
+(def p2 (read-line))
+
+(def vetor-p1 (str/split p1 #" "))
+(def vetor-p2 (str/split p2 #" "))
+
+(defn calcula-distancia
+  [[p1-x1 p1-y1] [p2-x2 p2-y2]]
+  (let [x-calc (math/expt (- (Double/parseDouble p2-x2) (Double/parseDouble p1-x1)) 2)
+        y-calc (math/expt (- (Double/parseDouble p2-y2) (Double/parseDouble p1-y1)) 2)
+        sum-x-y (+ x-calc y-calc)]
+    (math/sqrt sum-x-y)))
+
+(println (format "%.4f" (calcula-distancia vetor-p1 vetor-p2)))
