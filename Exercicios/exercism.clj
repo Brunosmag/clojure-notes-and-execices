@@ -33,3 +33,19 @@ defn new-list
   (remove-language '("Lisp" "Clojure"))
   (add-language "Java" '("JavaScript"))
   (count-languages '("Java" "JavaScript" "Clojure")))
+
+;;https://exercism.org/tracks/clojure/exercises/cars-assemble
+(defn production-rate
+  [speed]
+  (cond (= speed 0) 0.0
+        (<= speed 4) (* speed 221.0)
+        (<= speed 8) (* (* speed 221) 0.9)
+        (= speed 9) (* (* speed 221) 0.8)
+        (= speed 10) (* (* speed 221) 0.77)))
+
+(defn working-items
+  [speed]
+  (let [production-per-minute (/ (production-rate speed) 60)]
+    (int production-per-minute)))
+
+(println (working-items 6))
