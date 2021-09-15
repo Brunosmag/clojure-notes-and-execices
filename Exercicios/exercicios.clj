@@ -238,3 +238,13 @@
     (math/sqrt sum-x-y)))
 
 (println (format "%.4f" (calcula-distancia vetor-p1 vetor-p2)))
+
+;;https://www.urionlinejudge.com.br/judge/pt/problems/view/1042
+(def entrada (read-line))
+(def vetor-entrada (str/split entrada #" "))
+
+(defn converte-em-int
+  [valor]
+  (Integer/parseInt valor))
+
+(println (sort < (map converte-em-int vetor-entrada)))
