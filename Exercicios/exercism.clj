@@ -49,3 +49,37 @@ defn new-list
     (int production-per-minute)))
 
 (println (working-items 6))
+
+
+;;https://exercism.org/tracks/clojure/exercises/bird-watcher
+(defn today [birds]
+  (last birds))
+
+(defn inc-bird [birds]
+  (let [inc-one-bird (inc (last birds))
+        new-vector (pop birds)]
+    (conj new-vector inc-one-bird)))
+
+(defn day-without-birds? [birds]
+  (let [zero-birds (some #(= 0 %) birds)]
+    (some? zero-birds)))
+
+(defn n-days-count [birds n]
+  (let [splitted-vector (split-at n birds)]
+    (reduce + (get splitted-vector 0))))
+
+(defn busy-days [birds]
+  (let [get-busy-days (filter #(>= % 5) birds)]
+    (count get-busy-days)))
+
+(defn odd-week? [birds]
+  (let [expected [1 0 1 0 1 0 1]]
+    (= birds expected)))
+
+(def birds-per-day [2 5 5 7 4 1])
+(println (today birds-per-day))
+(println (inc-bird birds-per-day))
+(println (day-without-birds? birds-per-day))
+(println (n-days-count birds-per-day 4))
+(println (busy-days birds-per-day))
+(println (odd-week? [1 0 1 0 1 0 1]))
