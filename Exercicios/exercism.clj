@@ -83,3 +83,26 @@ defn new-list
 (println (n-days-count birds-per-day 4))
 (println (busy-days birds-per-day))
 (println (odd-week? [1 0 1 0 1 0 1]))
+
+
+;;https://exercism.org/tracks/clojure/exercises/interest-is-interesting/edit
+(defn interest-rate
+  [balance]
+  (cond (< balance 0) -3.213
+        (< balance 1000) 0.5
+        (< balance 5000) 1.621
+        :else 2.475 ))
+
+(defn annual-balance-update
+  [balance]
+  (let [rate-percent (/ (interest-rate balance) 100.00)
+        interest-plus (* balance rate-percent)]
+    (bigdec(+ balance interest-plus))))
+
+(defn amount-to-donate
+  [balance tax-free-percentage]
+  (let [tax-free-calculated-percentage (/ tax-free-percentage 100.00)
+        balance-tax (* balance tax-free-calculated-percentage)]
+    (if (<= balance 0)
+      0
+      (int (* balance-tax 2)))))
