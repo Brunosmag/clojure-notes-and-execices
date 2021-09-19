@@ -106,3 +106,37 @@ defn new-list
     (if (<= balance 0)
       0
       (int (* balance-tax 2)))))
+
+;;https://exercism.org/tracks/clojure/exercises/annalyns-infiltration
+(defn can-fast-attack?
+  "Returns true if a fast-attack can be made, false otherwise."
+  [knight-awake?]
+  (if knight-awake? false true))
+
+(defn can-spy?
+  "Returns true if the kidnappers can be spied upon, false otherwise."
+  [knight-awake? archer-awake? prisoner-awake?]
+  (cond
+    knight-awake? true
+    archer-awake? true
+    prisoner-awake? true
+    :else false))
+
+(defn can-signal-prisoner?
+  "Returns true if the prisoner can be signalled, false otherwise."
+  [archer-awake? prisoner-awake?]
+  (cond
+    archer-awake? false
+    (not prisoner-awake?) false
+    :else true))
+
+(defn can-free-prisoner?
+  "Returns true if prisoner can be freed, false otherwise."
+  [knight-awake? archer-awake? prisoner-awake? dog-present?]
+  (cond
+    (and knight-awake? archer-awake?) false
+    (and (not dog-present?) (or knight-awake? archer-awake?)) false
+    (and (not knight-awake?) (not archer-awake?) (not prisoner-awake?) (not dog-present?)) false
+    (and archer-awake? dog-present?) false
+    (and prisoner-awake? (not knight-awake?) (not archer-awake?)) true
+    (and (not archer-awake?) dog-present?) true))
