@@ -140,3 +140,26 @@ defn new-list
     (and archer-awake? dog-present?) false
     (and prisoner-awake? (not knight-awake?) (not archer-awake?)) true
     (and (not archer-awake?) dog-present?) true))
+
+
+
+;;https://exercism.org/tracks/clojure/exercises/log-levels
+(defn message
+  "Takes a string representing a log line
+   and returns its message with whitespace trimmed."
+  [s]
+  (str/trim (get (str/split s #": ") 1)))
+
+(defn log-level
+  "Takes a string representing a log line
+   and returns its level in lower-case."
+  [s]
+  (str/lower-case (get (re-find (re-matcher #"\[(.*?)\]" s)) 1)))
+
+(defn reformat
+  "Takes a string representing a log line and formats it
+   with the message first and the log level in parentheses."
+  [s]
+  (let [formatted-message (message s)
+        log-level-message (str/replace (print-str "("(log-level s)")") " " "")]
+    (print-str formatted-message log-level-message)))
