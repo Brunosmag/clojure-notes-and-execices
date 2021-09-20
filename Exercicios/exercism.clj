@@ -199,6 +199,6 @@ defn new-list
   "Returns the deck with face cards between its head and tail."
   [deck]
   (let [splitted-deck (split-at 1 deck)
-        new-deck (into [](get (conj [] (get splitted-deck 0)) 0))
-        new-deck-with-face-cards (into [] (concat new-deck face-cards)) ]
-    (into [] (concat new-deck-with-face-cards (get splitted-deck 1)))))
+        first-part (into [] (get splitted-deck 0))
+        second-part (into [] (get splitted-deck 1))]
+    (concat first-part (concat face-cards second-part))))
