@@ -163,3 +163,42 @@ defn new-list
   (let [formatted-message (message s)
         log-level-message (str/replace (print-str "("(log-level s)")") " " "")]
     (print-str formatted-message log-level-message)))
+
+;;https://exercism.org/tracks/clojure/exercises/elyses-destructured-enchantments/edit
+(defn first-card
+  "Returns the first card from deck."
+  [deck]
+  (first deck))
+
+(defn second-card
+  "Returns the second card from deck."
+  [deck]
+  (second deck))
+
+(defn swap-top-two-cards
+  "Returns the deck with first two items reversed."
+  [deck]
+  (let [first-item (first deck)
+        second-item (second deck)
+        first-replace (assoc deck 0 second-item)]
+    (assoc first-replace 1 first-item)))
+
+(defn discard-top-card
+  "Returns a vector containing the first card and
+   a vector of the remaining cards in the deck."
+  [deck]
+  (let [splitted-vector (split-at 1 deck)
+        first-part (into [] (get splitted-vector 0))
+        remaining-vector (into [] (get splitted-vector 1))]
+    (conj first-part remaining-vector)))
+
+(def face-cards
+  ["jack" "queen" "king"])
+
+(defn insert-face-cards
+  "Returns the deck with face cards between its head and tail."
+  [deck]
+  (let [splitted-deck (split-at 1 deck)
+        new-deck (into [](get (conj [] (get splitted-deck 0)) 0))
+        new-deck-with-face-cards (into [] (concat new-deck face-cards)) ]
+    (into [] (concat new-deck-with-face-cards (get splitted-deck 1)))))
