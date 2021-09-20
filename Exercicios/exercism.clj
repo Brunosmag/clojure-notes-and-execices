@@ -202,3 +202,13 @@ defn new-list
         first-part (into [] (get splitted-deck 0))
         second-part (into [] (get splitted-deck 1))]
     (concat first-part (concat face-cards second-part))))
+
+;;https://exercism.org/tracks/clojure/exercises/two-fer
+(ns two-fer
+  (:require [clojure.string :as str]))
+
+(defn two-fer [name]
+  (cond
+    (or (nil? name) (str/blank? name)) (str "One for you, one for me.")
+    :else (str "One for " name ", one for me.")))
+
