@@ -212,3 +212,14 @@ defn new-list
     (or (nil? name) (str/blank? name)) (str "One for you, one for me.")
     :else (str "One for " name ", one for me.")))
 
+
+(ns exercism.core
+  (:require [clojure.math.numeric-tower :as math]
+            [clojure.string :as stg]))
+
+;;https://exercism.org/tracks/clojure/exercises/armstrong-numbers
+(defn armstrong?
+  [num]
+  (let [vector-num (seq (str num))
+        num-count (count vector-num)]
+    (= num (reduce + (mapv #(math/expt (Integer/parseInt (stg/replace % #"\\" "")) num-count) vector-num)))))
