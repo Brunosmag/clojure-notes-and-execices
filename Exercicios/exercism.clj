@@ -223,3 +223,9 @@ defn new-list
   (let [vector-num (seq (str num))
         num-count (count vector-num)]
     (= num (reduce + (mapv #(math/expt (Integer/parseInt (stg/replace % #"\\" "")) num-count) vector-num)))))
+
+
+;;https://exercism.org/tracks/clojure/exercises/reverse-string
+(defn reverse-string [s]
+   (apply str (reverse s)))
+
